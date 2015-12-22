@@ -14,6 +14,8 @@
 		C6D4430E1C29E1DE00CE843E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D4430C1C29E1DE00CE843E /* LaunchScreen.storyboard */; };
 		C6D443191C29E1DE00CE843E /* ZHNewYorkTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443181C29E1DE00CE843E /* ZHNewYorkTimesTests.swift */; };
 		C6D443241C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443231C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift */; };
+		C6D443321C29E1EF00CE843E /* ZHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443311C29E1EF00CE843E /* ZHViewController.swift */; };
+		C6D443341C29E1FD00CE843E /* ZHTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443331C29E1FD00CE843E /* ZHTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C6D4431F1C29E1DF00CE843E /* ZHNewYorkTimesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHNewYorkTimesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D443231C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHNewYorkTimesUITests.swift; sourceTree = "<group>"; };
 		C6D443251C29E1DF00CE843E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D443311C29E1EF00CE843E /* ZHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHViewController.swift; sourceTree = "<group>"; };
+		C6D443331C29E1FD00CE843E /* ZHTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,12 @@
 		C6D443021C29E1DE00CE843E /* ZHNewYorkTimes */ = {
 			isa = PBXGroup;
 			children = (
-				C6D443031C29E1DE00CE843E /* AppDelegate.swift */,
-				C6D443051C29E1DE00CE843E /* ViewController.swift */,
-				C6D443071C29E1DE00CE843E /* Main.storyboard */,
-				C6D4430A1C29E1DE00CE843E /* Assets.xcassets */,
-				C6D4430C1C29E1DE00CE843E /* LaunchScreen.storyboard */,
-				C6D4430F1C29E1DE00CE843E /* Info.plist */,
+				C6D443391C29E22700CE843E /* Categories */,
+				C6D443381C29E21A00CE843E /* SupportingFiles */,
+				C6D443371C29E21300CE843E /* UserInterface */,
+				C6D4433A1C29E23000CE843E /* Utilities */,
+				C6D443351C29E20300CE843E /* ViewControllers */,
+				C6D4433B1C29E23A00CE843E /* View */,
 			);
 			path = ZHNewYorkTimes;
 			sourceTree = "<group>";
@@ -123,6 +127,64 @@
 				C6D443251C29E1DF00CE843E /* Info.plist */,
 			);
 			path = ZHNewYorkTimesUITests;
+			sourceTree = "<group>";
+		};
+		C6D443351C29E20300CE843E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6D443361C29E20A00CE843E /* Base */,
+				C6D443051C29E1DE00CE843E /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C6D443361C29E20A00CE843E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C6D443311C29E1EF00CE843E /* ZHViewController.swift */,
+				C6D443331C29E1FD00CE843E /* ZHTableViewController.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		C6D443371C29E21300CE843E /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				C6D443071C29E1DE00CE843E /* Main.storyboard */,
+				C6D4430A1C29E1DE00CE843E /* Assets.xcassets */,
+				C6D4430C1C29E1DE00CE843E /* LaunchScreen.storyboard */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		C6D443381C29E21A00CE843E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C6D443031C29E1DE00CE843E /* AppDelegate.swift */,
+				C6D4430F1C29E1DE00CE843E /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C6D443391C29E22700CE843E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		C6D4433A1C29E23000CE843E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		C6D4433B1C29E23A00CE843E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6D443061C29E1DE00CE843E /* ViewController.swift in Sources */,
+				C6D443321C29E1EF00CE843E /* ZHViewController.swift in Sources */,
 				C6D443041C29E1DE00CE843E /* AppDelegate.swift in Sources */,
+				C6D443341C29E1FD00CE843E /* ZHTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
