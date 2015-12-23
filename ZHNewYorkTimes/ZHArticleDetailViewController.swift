@@ -22,33 +22,27 @@ class ZHArticleDetailViewController: ZHViewController {
         super.viewDidLoad()
         webView.scalesPageToFit = true
         
-        if let webUrl = article?.webUrl {
-            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            let request = NSURLRequest(URL: webUrl)
-            webView.loadRequest(request)
+        if ZHReachability.isConnectedToNetwork() == false {
+            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
+        } else {
+            if let webUrl = article?.webUrl {
+                MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                let request = NSURLRequest(URL: webUrl)
+                webView.loadRequest(request)
+            }
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    
     }
-    
-
 }
 
-extension ZHArticleDetailViewController: UIWebViewDelegate {
-    
-    func webViewDidStartLoad(webView: UIWebView) {
-    }
-    
+extension ZHArticleDetailViewController: UIWebViewDelegate {    
     func webViewDidFinishLoad(webView: UIWebView) {
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-    }
-    
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        }
     }
 }

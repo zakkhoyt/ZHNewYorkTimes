@@ -132,17 +132,10 @@
 			children = (
 				C69ADC831C2A34B000612146 /* ZHNYTArticle.h */,
 				C69ADC841C2A34B000612146 /* ZHNYTArticle.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		C69ADC911C2A763700612146 /* Pagination */ = {
-			isa = PBXGroup;
-			children = (
 				C69ADC8E1C2A763400612146 /* ZHNYTPagination.h */,
 				C69ADC8F1C2A763400612146 /* ZHNYTPagination.m */,
 			);
-			name = Pagination;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C6D442F71C29E1DE00CE843E = {
@@ -264,7 +257,6 @@
 				C69ADC871C2A366400612146 /* ZHNYTManager.h */,
 				C69ADC881C2A366400612146 /* ZHNYTManager.m */,
 				C69ADC8A1C2A3C7F00612146 /* Model */,
-				C69ADC911C2A763700612146 /* Pagination */,
 			);
 			name = REST;
 			sourceTree = "<group>";
