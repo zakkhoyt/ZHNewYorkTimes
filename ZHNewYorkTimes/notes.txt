@@ -1,0 +1,115 @@
+
+General requirements:
+
+- Create an news feed app that display a list of New York Times articles.
+
+- The app should have at least 2 controllers:
+
+1) A Feed controller, which will consist of a list of latest articles in chronologic order;
+
+2) A Detail controller, which will display the entire content of an article;
+
+- You should be able to navigate from the feed to a detail view, then back to the feed;
+
+- You should use source control, and create a public repository we can access prior to the presentation;
+
+- You should be ready to explain what libraries and third-party components you used, and why;
+
+- You should be ready to explain architecture decisions you’ve made.
+
+- Host the project on Github and share the link once you get started.
+
+
+
+Feed Controller requirements
+
+- The UI of the feed should look clean and intuitive, even if using standard elements;
+
+- Feed cells should gracefully display:
+
+1) Headline;
+
+2) Excerpt/Tagline;
+
+3) Thumbnail (where available);
+
+4) article timestamp;
+
+- When selecting a cell, user should receive UI feedback, then transition to the detail controller of the selected feed entry;
+
+- User should be able to load further pages of content;
+
+
+
+Detail Controller requirements:
+
+- Detail controller gracefully present as much information as available for the entry;
+
+- User should be able to navigate back to the feed;
+
+
+
+Optional requirements:
+
+- Write the application with Swift;
+
+- Present a polished visual identity;
+
+- Handle offline conditions gracefully - dropped connection messaging, article caching for offline reading, etc;
+
+- Include unit tests where possible;
+
+Resources:
+
+NYT API: http://developer.nytimes.com/docs/read/article_search_api_v2
+
+________________________________________________________________________________________________________
+
+
+Key: 3b224e328771da446ab6c6c5a23c427b:13:73834071
+
+Application: ZHNewYorkTimes
+Key: 3b224e328771da446ab6c6c5a23c427b:13:73834071
+Status: active Registered: 2 seconds ago
+Key Rate Limits
+10	Calls per second
+10,000	Calls per day
+
+
+http://api.nytimes.com/svc/search/v2/articlesearch.json?q=trump&api-key=3b224e328771da446ab6c6c5a23c427b:13:73834071
+
+http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3b224e328771da446ab6c6c5a23c427b:13:73834071
+
+
+http://api.nytimes.com/svc/search/v2/articlesearch.json?q=new+york+times&page=0&sort=oldest&api-key=3b224e328771da446ab6c6c5a23c427b:13:73834071
+
+
+
+
+
+
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSExceptionDomains</key>
+<dict>
+<key>api.nytimes.com</key>
+<dict>
+<key>NSIncludesSubdomains</key>
+<true/>
+<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+<true/>
+<key>NSTemporaryExceptionMinimumTLSVersion</key>
+<string>TLSv1.1</string>
+</dict>
+</dict>
+</dict>
+
+
+
+
+<key>NSAppTransportSecurity</key>
+<dict>
+<!--Include to allow all connections (DANGER)-->
+<key>NSAllowsArbitraryLoads</key>
+<true/>
+</dict>
