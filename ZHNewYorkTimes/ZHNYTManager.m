@@ -50,7 +50,7 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
         pagination = [ZHNYTPagination new];
     }
 
-    // Build our URL
+    // Build our GET URL
     NSString *urlString = [NSString stringWithFormat:@"http://api.nytimes.com/svc/search/v2/articlesearch.json"
                            @"?q=new+york+times"
                            @"&page=%lu"
@@ -61,7 +61,7 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Request json. This completionHandler will be run on a background queue as configured in init.
-    // We will call our completionHandler on the main queue.
+    // We will call this function's completionHandler on the main queue.
     NSURLSessionDataTask *articlesTask = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(error != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -75,6 +75,12 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
                     completionBlock(nil, nil, jsonError);
                 });
             } else {
+                // Get pagination
+                NSNumber *offsetNumber = [jsonDictionary valueForKeyPath:@"response.meta.offset"];
+                NSUInteger page = offsetNumber.unsignedIntegerValue / pagination.perPage + 1;
+                pagination.page = page;
+                
+                // Get articles
                 NSArray <NSDictionary *> *articleDictionaries = [jsonDictionary valueForKeyPath:@"response.docs"];
                 NSMutableArray *articles = [[NSMutableArray alloc]initWithCapacity:articleDictionaries.count];
                 [articleDictionaries enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dictionary, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -83,8 +89,6 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
                 }];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    // TODO: do some checking. Should this be a method?
-                    pagination.page++;
                     completionBlock(articles, pagination, nil);
                 });                
             }

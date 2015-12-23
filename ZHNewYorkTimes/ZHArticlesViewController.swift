@@ -60,11 +60,18 @@ class ZHArticlesViewController: ZHViewController {
     }
     
     func resetNYT() {
-        // Clear any articles, wipe the tableView, reset pagination.
-        articles.removeAll()
-        tableView.reloadData()
-        pagination = nil
-        getNYTArticles()
+        // We don't want to wipe the tableView unless we know there is an active connection.
+        if ZHReachability.isConnectedToNetwork() == false {
+            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
+        } else {
+            // Clear any articles, wipe the tableView, reset pagination.
+            articles.removeAll()
+            tableView.reloadData()
+            pagination = nil
+            
+            // Get new articles, populate tableView, and mark pagination.
+            getNYTArticles()
+        }
     }
     
     func getNYTArticles() {

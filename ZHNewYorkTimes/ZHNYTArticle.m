@@ -17,9 +17,11 @@
         if(dictionary[@"web_url"]) {
             self.webUrl = [NSURL URLWithString:dictionary[@"web_url"]];
         }
+        
         if(dictionary[@"_id"]) {
             self.uuid = dictionary[@"_id"];
         }
+        
         if(dictionary[@"snippet"]) {
             self.snippet = dictionary[@"snippet"];
         }

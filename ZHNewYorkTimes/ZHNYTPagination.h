@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ZHNYTPagination : NSObject
-
 @property (nonatomic) NSUInteger page;
 @property (nonatomic) NSUInteger perPage;
-@property (nonatomic) NSUInteger totalCount;
-
 @end

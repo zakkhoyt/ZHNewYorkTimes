@@ -8,14 +8,15 @@
 
 #import "ZHNYTPagination.h"
 
+const NSUInteger ZHNYTPaginationPageSize = 10;
+
 @implementation ZHNYTPagination
 
-- (instancetype)initWithPage:(NSUInteger)page perPage:(NSUInteger)perPage totalCount:(NSUInteger)totalCount {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _page = page;
-        _perPage = perPage;
-        _totalCount = totalCount;
+        _page = 0;
+        _perPage = ZHNYTPaginationPageSize;
     }
     return self;
 }
