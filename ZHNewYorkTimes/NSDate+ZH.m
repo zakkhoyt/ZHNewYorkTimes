@@ -21,9 +21,33 @@
     return date;
 }
 
+-(NSString*)stringFromDateShort{
+    NSString *dateFormatString = @"EE, MMM dd, YYYY";
+    
+    NSDateFormatter* dateUTC = [[NSDateFormatter alloc] init];
+    [dateUTC setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    [dateUTC setDateFormat:dateFormatString];
+    
+    NSDateFormatter* dateLocal = [[NSDateFormatter alloc] init];
+    [dateLocal setTimeZone:[NSTimeZone localTimeZone]];
+    [dateLocal setDateFormat:dateFormatString];
+    
+    NSString* dateString = [dateLocal stringFromDate:self];
+    if(dateString == nil) dateString = @"";
+    return dateString;
+}
+
+
 -(NSString*)stringRelativeTimeFromDate{
     NSDate *now = [NSDate date];
-    double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
+    double deltaSeconds = [self timeIntervalSinceDate:now];
+    
+    if(deltaSeconds > 0) {
+        return @"In the future!";
+    } else {
+        deltaSeconds = fabs(deltaSeconds);
+    }
+    
     double deltaMinutes = deltaSeconds / 60.0f;
     
     NSUInteger minutes;

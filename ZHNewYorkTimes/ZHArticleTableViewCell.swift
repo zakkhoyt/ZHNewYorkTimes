@@ -22,7 +22,8 @@ class ZHArticleTableViewCell: UITableViewCell {
             } else {
                 snippetLabel.text = ""
             }
-            dateLabel.text = article?.publishDate.stringRelativeTimeFromDate()
+//            dateLabel.text = article?.publishDate.stringRelativeTimeFromDate()
+            dateLabel.text = article?.publishDate.stringFromDateShort()
             
             if let multimedia = article?.multimedia {
                 self.mediaImageView.sd_setImageWithURL(multimedia)

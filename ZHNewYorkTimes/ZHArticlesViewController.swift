@@ -91,7 +91,7 @@ class ZHArticlesViewController: ZHViewController {
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         indexPaths.append(indexPath)
                     }
-                    self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+                    self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Right)
                 }
                 
                 // Pause so we don't get a rush of next pages

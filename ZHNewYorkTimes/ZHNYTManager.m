@@ -75,6 +75,7 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
                     completionBlock(nil, nil, jsonError);
                 });
             } else {
+                // TODO: Are the articles actually sorted in descending date order? It's not appearing so...
                 NSArray <NSDictionary *> *articleDictionaries = [jsonDictionary valueForKeyPath:@"response.docs"];
                 NSMutableArray *articles = [[NSMutableArray alloc]initWithCapacity:articleDictionaries.count];
                 [articleDictionaries enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dictionary, NSUInteger idx, BOOL * _Nonnull stop) {

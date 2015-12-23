@@ -15,6 +15,7 @@
 		C69ADC961C2A7EF300612146 /* ZHReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC951C2A7EF300612146 /* ZHReachability.swift */; };
 		C69ADC991C2A7F2100612146 /* UIViewController+AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC981C2A7F2100612146 /* UIViewController+AlertController.m */; };
 		C69ADC9C1C2A7F2700612146 /* UIColor+ZH.m in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC9B1C2A7F2700612146 /* UIColor+ZH.m */; };
+		C69ADC9E1C2A833C00612146 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = C69ADC9D1C2A833C00612146 /* README.txt */; };
 		C6D443041C29E1DE00CE843E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443031C29E1DE00CE843E /* AppDelegate.swift */; };
 		C6D443091C29E1DE00CE843E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D443071C29E1DE00CE843E /* Main.storyboard */; };
 		C6D4430B1C29E1DE00CE843E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D4430A1C29E1DE00CE843E /* Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		C6D443191C29E1DE00CE843E /* ZHNewYorkTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443181C29E1DE00CE843E /* ZHNewYorkTimesTests.swift */; };
 		C6D443241C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443231C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift */; };
 		C6D443321C29E1EF00CE843E /* ZHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443311C29E1EF00CE843E /* ZHViewController.swift */; };
-		C6D443401C29ECB600CE843E /* notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6D4433F1C29ECB600CE843E /* notes.txt */; };
+		C6D443401C29ECB600CE843E /* assignment.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6D4433F1C29ECB600CE843E /* assignment.txt */; };
 		C6D443421C29EF2500CE843E /* ZHArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443411C29EF2500CE843E /* ZHArticlesViewController.swift */; };
 		C6D443441C29EF3700CE843E /* ZHArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443431C29EF3700CE843E /* ZHArticleDetailViewController.swift */; };
 		C6D443471C29EFBA00CE843E /* ZHArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D443461C29EFBA00CE843E /* ZHArticleTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 		C69ADC981C2A7F2100612146 /* UIViewController+AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertController.m"; sourceTree = "<group>"; };
 		C69ADC9A1C2A7F2700612146 /* UIColor+ZH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZH.h"; sourceTree = "<group>"; };
 		C69ADC9B1C2A7F2700612146 /* UIColor+ZH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZH.m"; sourceTree = "<group>"; };
+		C69ADC9D1C2A833C00612146 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		C6D443001C29E1DE00CE843E /* ZHNewYorkTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHNewYorkTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D443031C29E1DE00CE843E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D443081C29E1DE00CE843E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 		C6D443231C29E1DF00CE843E /* ZHNewYorkTimesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHNewYorkTimesUITests.swift; sourceTree = "<group>"; };
 		C6D443251C29E1DF00CE843E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6D443311C29E1EF00CE843E /* ZHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHViewController.swift; sourceTree = "<group>"; };
-		C6D4433F1C29ECB600CE843E /* notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
+		C6D4433F1C29ECB600CE843E /* assignment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = assignment.txt; sourceTree = "<group>"; };
 		C6D443411C29EF2500CE843E /* ZHArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHArticlesViewController.swift; sourceTree = "<group>"; };
 		C6D443431C29EF3700CE843E /* ZHArticleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHArticleDetailViewController.swift; sourceTree = "<group>"; };
 		C6D443461C29EFBA00CE843E /* ZHArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -270,7 +272,8 @@
 		C6D443451C29EF6200CE843E /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				C6D4433F1C29ECB600CE843E /* notes.txt */,
+				C69ADC9D1C2A833C00612146 /* README.txt */,
+				C6D4433F1C29ECB600CE843E /* assignment.txt */,
 			);
 			name = Documents;
 			sourceTree = "<group>";
@@ -406,10 +409,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D443401C29ECB600CE843E /* notes.txt in Resources */,
+				C6D443401C29ECB600CE843E /* assignment.txt in Resources */,
 				C6D4430E1C29E1DE00CE843E /* LaunchScreen.storyboard in Resources */,
 				C6D4430B1C29E1DE00CE843E /* Assets.xcassets in Resources */,
 				C6D443091C29E1DE00CE843E /* Main.storyboard in Resources */,
+				C69ADC9E1C2A833C00612146 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,5 +10,6 @@
 
 @interface NSDate (ZH)
 +(NSDate*)dateFromString:(NSString*)string;
+-(NSString*)stringFromDateShort;
 -(NSString*)stringRelativeTimeFromDate;
 @end
