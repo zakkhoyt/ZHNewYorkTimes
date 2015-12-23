@@ -14,8 +14,8 @@
 @property (nonatomic, strong) NSString *source;
 @property (nonatomic, strong) NSString *headline;
 @property (nonatomic, strong) NSString *uuid;
-
-
+@property (nonatomic, strong) NSDate *publishDate;
+@property (nonatomic, strong) NSURL *multimedia;
 
 
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;

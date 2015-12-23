@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ZHNYTArticle.h"
+#import "ZHNYTPagination.h"
 
-typedef void (^ZHNYTManagerArticlesErrorBlock) (NSArray <ZHNYTArticle*> *articles, NSError *error);
+typedef void (^ZHNYTManagerArticlesrBlock) (NSArray <ZHNYTArticle*> *articles, ZHNYTPagination *pagination, NSError *error);
 
 @interface ZHNYTManager : NSObject
 +(instancetype)sharedInstance;
--(void)getArticlesWithPagination:(NSUInteger)page completionBlock:(ZHNYTManagerArticlesErrorBlock)completionBlock;
+-(void)getArticlesWithPagination:(ZHNYTPagination*)pagination completionBlock:(ZHNYTManagerArticlesrBlock)completionBlock;
 @end

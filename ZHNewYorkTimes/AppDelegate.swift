@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        setupAppearance()
         return true
     }
 
@@ -41,6 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func setupAppearance() {
+        let attr = [NSForegroundColorAttributeName: UIColor.yellowColor()]
+        UINavigationBar.appearance().titleTextAttributes = attr
+        UINavigationBar.appearance().barTintColor = UIColor.zhBackgroundColor()
+        UINavigationBar.appearance().tintColor = UIColor.zhTintColor()
+        UIBarButtonItem.appearance().setTitleTextAttributes(attr, forState: UIControlState.Normal)
+        
+        UIToolbar.appearance().barTintColor = UIColor.zhBackgroundColor()
+        UIToolbar.appearance().tintColor = UIColor.zhTintColor()
+        
+        UITableViewCell.appearance().backgroundColor = UIColor.zhBackgroundColor()
+        UITableView.appearance().backgroundColor = UIColor.zhBackgroundColor()
+        
+        UIWebView.appearance().backgroundColor = UIColor.zhBackgroundColor()
+        UIWebView.appearance().tintColor = UIColor.zhTintColor()
+    }
 
 }
 

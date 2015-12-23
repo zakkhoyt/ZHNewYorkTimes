@@ -7,18 +7,13 @@
 //
 
 #import "ZHNYTArticle.h"
+#import "NSDate+ZH.h"
 
 @implementation ZHNYTArticle
 
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary {
     self = [super init];
     if (self) {
-//        @property (nonatomic, strong) NSURL *webUrl;
-//        @property (nonatomic, strong) NSString *snippet;
-//        @property (nonatomic, strong) NSString *leadParagraph;
-//        @property (nonatomic, strong) NSString *source;
-//        @property (nonatomic, strong) NSString *headline;
-//        @property (nonatomic, strong) NSString *uuid;
         if(dictionary[@"web_url"]) {
             self.webUrl = [NSURL URLWithString:dictionary[@"web_url"]];
         }
@@ -31,6 +26,36 @@
 
         if( [dictionary valueForKeyPath:@"headline.main"]) {
             self.headline = [dictionary valueForKeyPath:@"headline.main"];
+        }
+
+        if(dictionary[@"pub_date"]) {
+            NSString *dateString = dictionary[@"pub_date"];
+            self.publishDate = [NSDate dateFromString:dateString];
+        }
+
+        if(dictionary[@"multimedia"]) {
+            // Sample return value
+//            {
+//                height = 126;
+//                legacy =     {
+//                    wide = "images/2015/12/18/arts/18armory-1/18armory-1-thumbWide.jpg";
+//                    wideheight = 126;
+//                    widewidth = 190;
+//                };
+//                subtype = wide;
+//                type = image;
+//                url = "images/2015/12/18/arts/18armory-1/18armory-1-thumbWide.jpg";
+//                width = 190;
+//            },
+            
+            // TODO: Get biggest image possible
+            
+            NSArray *multimedia = dictionary[@"multimedia"];
+            NSDictionary *firstMultimedia = [multimedia firstObject];
+            NSString *imageURL = [firstMultimedia valueForKeyPath:@"url"];
+            NSString *baseURL = @"http://www.nytimes.com/";
+            NSURL *mediaURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, imageURL]];
+            self.multimedia = mediaURL;
         }
 
     }
