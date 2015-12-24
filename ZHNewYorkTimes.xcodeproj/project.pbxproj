@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		89EE49F46290FD82479B91FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F866375299FD9534F3CF918 /* libPods.a */; };
+		B2C312090AA4E6A498E746BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F866375299FD9534F3CF918 /* libPods.a */; };
 		C69ADC861C2A34E500612146 /* ZHNYTArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC841C2A34B000612146 /* ZHNYTArticle.m */; };
 		C69ADC891C2A366400612146 /* ZHNYTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC881C2A366400612146 /* ZHNYTManager.m */; };
 		C69ADC8D1C2A70FE00612146 /* NSDate+ZH.m in Sources */ = {isa = PBXBuildFile; fileRef = C69ADC8C1C2A70FE00612146 /* NSDate+ZH.m */; };
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C312090AA4E6A498E746BA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6D4432B1C29E1DF00CE843E /* Build configuration list for PBXNativeTarget "ZHNewYorkTimesTests" */;
 			buildPhases = (
+				B0354E202297880FC85F6C37 /* Check Pods Manifest.lock */,
 				C6D443101C29E1DE00CE843E /* Sources */,
 				C6D443111C29E1DE00CE843E /* Frameworks */,
 				C6D443121C29E1DE00CE843E /* Resources */,
+				906267A1FE584E6C9BA3613A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -426,7 +430,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		906267A1FE584E6C9BA3613A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B0123E11405FFD55844C2979 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B0354E202297880FC85F6C37 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -643,6 +677,7 @@
 		};
 		C6D4432C1C29E1DF00CE843E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20A0EC277A1730F071438242 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ZHNewYorkTimesTests/Info.plist;
@@ -655,6 +690,7 @@
 		};
 		C6D4432D1C29E1DF00CE843E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E73D13FE069DEE607233123 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ZHNewYorkTimesTests/Info.plist;

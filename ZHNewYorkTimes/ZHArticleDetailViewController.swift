@@ -12,11 +12,7 @@ class ZHArticleDetailViewController: ZHViewController {
     
     @IBOutlet weak var webView: UIWebView!
     
-    var article: ZHNYTArticle? = nil {
-        didSet{
-            
-        }
-    }
+    var article: ZHNYTArticle? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +26,16 @@ class ZHArticleDetailViewController: ZHViewController {
             } else {
                 self.webView.loadData(data, MIMEType: "text/html", textEncodingName: "UTF-8", baseURL: NSURL())
             }
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+            }
+
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
 extension ZHArticleDetailViewController: UIWebViewDelegate {
-    func webViewDidFinishLoad(webView: UIWebView) {
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
-        }
-    }
-    
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        if let error = error {
-            print("Error: " + error.localizedDescription)
-        }
-    }
-    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
     }

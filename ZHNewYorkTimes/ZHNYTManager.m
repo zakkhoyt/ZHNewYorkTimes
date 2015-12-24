@@ -110,9 +110,7 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
         }
     }];
     
-    
     [articlesTask resume];
-    
 }
 
 
@@ -135,7 +133,6 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
             });
         }
     }];
-    
     
     [articleTask resume];
 }
