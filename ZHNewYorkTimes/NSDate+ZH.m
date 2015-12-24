@@ -22,7 +22,7 @@
 }
 
 -(NSString*)stringFromDateShort{
-    NSString *dateFormatString = @"EE, MMM dd, YYYY";
+    NSString *dateFormatString = @"EE MMM dd, YYYY";
     
     NSDateFormatter* dateUTC = [[NSDateFormatter alloc] init];
     [dateUTC setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
