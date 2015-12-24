@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZHNewYorkTimes/ZHViewController.swift"
-            timestampString = "472547535.990313"
+            timestampString = "472614751.312777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZHNewYorkTimes/ZHArticlesViewController.swift"
-            timestampString = "472589642.402107"
+            timestampString = "472614751.312777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "getNYTArticles()"
             landmarkType = "5">
          </BreakpointContent>

@@ -10,9 +10,12 @@
 #import "ZHNYTArticle.h"
 #import "ZHNYTPagination.h"
 
-typedef void (^ZHNYTManagerArticlesrBlock) (NSArray <ZHNYTArticle*> *articles, ZHNYTPagination *pagination, NSError *error);
+typedef void (^ZHNYTManagerArticlesBlock) (NSArray <ZHNYTArticle*> *articles, ZHNYTPagination *pagination, NSError *error);
+typedef void (^ZHNYTArticleBlock)(NSData *data, NSError *eror);
 
 @interface ZHNYTManager : NSObject
 +(instancetype)sharedInstance;
--(void)getArticlesWithPagination:(ZHNYTPagination*)pagination completionBlock:(ZHNYTManagerArticlesrBlock)completionBlock;
+-(void)getArticlesWithPagination:(ZHNYTPagination*)pagination completionBlock:(ZHNYTManagerArticlesBlock)completionBlock;
+-(void)getArticle:(ZHNYTArticle*)article completionBlock:(ZHNYTArticleBlock)completionBlock;
+-(void)printCache;
 @end
