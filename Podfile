@@ -2,3 +2,5 @@
 platform :ios, '9.0'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod 'SDWebImage', '~>3.7'
+
+link_with 'ZHNewYorkTimes', 'ZHNewYorkTimesTests'

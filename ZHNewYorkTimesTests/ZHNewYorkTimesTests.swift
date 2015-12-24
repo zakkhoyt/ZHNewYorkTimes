@@ -21,17 +21,19 @@ class ZHNewYorkTimesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        ZHNYTManager.sharedInstance.getPageOfArticles(0)
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func testArticles() {
+        // Get a page of articles
+        ZHNYTManager.sharedInstance().getArticlesWithPagination(nil) { (articles: [ZHNYTArticle]!, pagination: ZHNYTPagination!, error: NSError!) -> Void in
+            XCTAssert(error == nil, "Error received back from get first page of articles")
+            XCTAssert(articles != nil, "Received no articles")
+            XCTAssert(articles.count >= 10, "Failed to receive a full page of articles")
+            
+            // Get first article
+            let article = articles.first
+            ZHNYTManager.sharedInstance().getArticle(article, completionBlock: { (data: NSData!, error: NSError!) -> Void in
+                XCTAssert(error == nil, "Error received back from get article detail")
+                XCTAssert(data != nil, "Received no data")
+            })
         }
     }
-    
 }

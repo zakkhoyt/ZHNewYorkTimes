@@ -18,6 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-Go-yus">
+                                <rect key="frame" x="0.0" y="559" width="600" height="41"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jIg-FH-gVA">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2S-Tv-ps1">
+                                            <rect key="frame" x="276" y="11" width="48.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="f2S-Tv-ps1" firstAttribute="centerY" secondItem="jIg-FH-gVA" secondAttribute="centerY" id="6es-VV-1Z0"/>
+                                        <constraint firstItem="f2S-Tv-ps1" firstAttribute="centerX" secondItem="jIg-FH-gVA" secondAttribute="centerX" id="y49-Pv-mj8"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="3Fc-13-rH9"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9fE-Gi-VHX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,13 +118,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9fE-Gi-VHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="59B-ou-Icy"/>
+                            <constraint firstAttribute="trailing" secondItem="dyA-Go-yus" secondAttribute="trailing" id="9eE-T4-Fej"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9fE-Gi-VHX" secondAttribute="bottom" id="Mbk-3d-z71"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9fE-Gi-VHX" secondAttribute="trailing" constant="-20" id="eQm-D1-oTk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dyA-Go-yus" secondAttribute="bottom" id="gjU-Nx-YHg"/>
                             <constraint firstItem="9fE-Gi-VHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="hEM-Is-xnu"/>
+                            <constraint firstItem="dyA-Go-yus" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ihw-pS-TPS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New York Times" id="lSh-TU-H8e"/>
                     <connections>
+                        <outlet property="offlineView" destination="dyA-Go-yus" id="6eB-c4-MbZ"/>
                         <outlet property="tableView" destination="9fE-Gi-VHX" id="KQM-XY-H8I"/>
                         <segue destination="OnZ-Vb-1TV" kind="show" identifier="SegueArticlesToDetail" id="MVm-PM-V9t"/>
                     </connections>
@@ -129,16 +156,44 @@
                                     <outlet property="delegate" destination="OnZ-Vb-1TV" id="ufo-nU-DQ5"/>
                                 </connections>
                             </webView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXs-4l-Xpx">
+                                <rect key="frame" x="0.0" y="559" width="600" height="41"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5XZ-nD-V0z">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqy-w4-kZb">
+                                            <rect key="frame" x="276" y="11" width="48.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Gqy-w4-kZb" firstAttribute="centerY" secondItem="5XZ-nD-V0z" secondAttribute="centerY" id="MaN-lI-BAl"/>
+                                        <constraint firstItem="Gqy-w4-kZb" firstAttribute="centerX" secondItem="5XZ-nD-V0z" secondAttribute="centerX" id="r0j-sl-YGg"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="BNz-gr-Vld"/>
+                                    <constraint firstAttribute="height" constant="41" id="b2J-1B-nKE"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yRd-3a-iMv" firstAttribute="top" secondItem="ZXs-4l-Xpx" secondAttribute="bottom" id="3rH-Tr-Djm"/>
                             <constraint firstItem="tjm-hP-YZX" firstAttribute="top" secondItem="V1p-DN-LxL" secondAttribute="topMargin" id="3zB-hW-OhU"/>
                             <constraint firstItem="yRd-3a-iMv" firstAttribute="top" secondItem="tjm-hP-YZX" secondAttribute="bottom" id="Gkk-KX-dib"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tjm-hP-YZX" secondAttribute="trailing" constant="-20" id="RW5-VG-gVb"/>
+                            <constraint firstItem="ZXs-4l-Xpx" firstAttribute="leading" secondItem="V1p-DN-LxL" secondAttribute="leadingMargin" constant="-20" id="mY6-bN-kBG"/>
                             <constraint firstItem="tjm-hP-YZX" firstAttribute="leading" secondItem="V1p-DN-LxL" secondAttribute="leadingMargin" constant="-20" id="pUL-yc-7TD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZXs-4l-Xpx" secondAttribute="trailing" constant="-20" id="yAe-Lf-oO3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="offlineView" destination="ZXs-4l-Xpx" id="9ua-NA-OeZ"/>
                         <outlet property="webView" destination="tjm-hP-YZX" id="2bV-VO-oCT"/>
                     </connections>
                 </viewController>

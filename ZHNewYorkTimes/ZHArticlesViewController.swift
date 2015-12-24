@@ -60,55 +60,47 @@ class ZHArticlesViewController: ZHViewController {
     }
     
     func resetNYT() {
-        // We don't want to wipe the tableView unless we know there is an active connection.
-        if ZHReachability.isConnectedToNetwork() == false {
-            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
-        } else {
-            // Clear any articles, wipe the tableView, reset pagination.
-            articles.removeAll()
-            tableView.reloadData()
-            pagination = nil
-            
-            // Get new articles, populate tableView, and mark pagination.
-            getNYTArticles()
-        }
+        // Clear any articles, wipe the tableView, reset pagination.
+        articles.removeAll()
+        tableView.reloadData()
+        pagination = nil
+        
+        // Get new articles, populate tableView, and mark pagination.
+        getNYTArticles()
     }
     
     func getNYTArticles() {
-        if ZHReachability.isConnectedToNetwork() == false {
-            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
-        } else {
-            MBProgressHUD.showHUDAddedTo(view, animated: true)
-            isGettingNextPage = true
-            ZHNYTManager.sharedInstance().getArticlesWithPagination(pagination) { (articles: [ZHNYTArticle]!, pagination: ZHNYTPagination!, error: NSError!) -> Void in
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                if let error = error {
-                    print("error: " + error.localizedDescription)
-                    self.presentAlertDialogWithTitle("Could not get articles", errorAsMessage: error)
-                } else {
-                    // Set pagination for next time
-                    self.pagination = pagination
-                    
-                    // Insert new articles
-                    let start = self.articles.count
-                    self.articles.appendContentsOf(articles)
-                    let end = self.articles.count
-                    var indexPaths: [NSIndexPath] = []
-                    for index in start ..< end {
-                        let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                        indexPaths.append(indexPath)
-                    }
-                    self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Right)
-                }
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        isGettingNextPage = true
+        ZHNYTManager.sharedInstance().getArticlesWithPagination(pagination) { (articles: [ZHNYTArticle]!, pagination: ZHNYTPagination!, error: NSError!) -> Void in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            if let error = error {
+                print("error: " + error.localizedDescription)
+                self.presentAlertDialogWithTitle("Could not get articles", errorAsMessage: error)
+            } else {
+                // Set pagination for next time
+                self.pagination = pagination
                 
-                // Pause so we don't get a rush of next pages
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) {
-                    self.isGettingNextPage = false
+                // Insert new articles
+                let start = self.articles.count
+                self.articles.appendContentsOf(articles)
+                let end = self.articles.count
+                var indexPaths: [NSIndexPath] = []
+                for index in start ..< end {
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    indexPaths.append(indexPath)
                 }
+                self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Right)
+            }
+            
+            // Pause so we don't get a rush of next pages
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self.isGettingNextPage = false
             }
         }
     }
+    
 }
 
 extension ZHArticlesViewController: UITableViewDataSource {

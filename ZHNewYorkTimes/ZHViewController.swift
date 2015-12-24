@@ -9,7 +9,16 @@
 import UIKit
 
 class ZHViewController: UIViewController {
+    @IBOutlet weak var offlineView: UIVisualEffectView!
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let offlineView = self.offlineView {
+            offlineView.hidden = true
+        }
     }
 }
