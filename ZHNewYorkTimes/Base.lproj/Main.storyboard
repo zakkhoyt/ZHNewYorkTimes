@@ -46,7 +46,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ZHArticleTableViewCell" rowHeight="105" id="eOG-bw-Zg0" customClass="ZHArticleTableViewCell" customModule="ZHNewYorkTimes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="105"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOG-bw-Zg0" id="8FC-kb-gfS">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="104.5"/>

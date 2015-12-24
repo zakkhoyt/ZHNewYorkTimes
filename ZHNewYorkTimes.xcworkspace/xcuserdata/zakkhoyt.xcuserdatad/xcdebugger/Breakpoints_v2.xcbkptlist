@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZHNewYorkTimes/ZHArticlesViewController.swift"
-            timestampString = "472614751.312777"
+            timestampString = "472625310.163407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "getNYTArticles()"
             landmarkType = "5">
          </BreakpointContent>

@@ -23,6 +23,9 @@ class ZHArticlesViewController: ZHViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let top = (navigationController?.navigationBar.frame.size.height)! + UIApplication.sharedApplication().statusBarFrame.size.height
+        self.tableView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0)
+        
         setupTableView()
         resetNYT()
     }
