@@ -22,15 +22,15 @@ class ZHArticleDetailViewController: ZHViewController {
         super.viewDidLoad()
         webView.scalesPageToFit = true
         
-        if ZHReachability.isConnectedToNetwork() == false {
-            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
-        } else {
+//        if ZHReachability.isConnectedToNetwork() == false {
+//            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
+//        } else {
             if let webUrl = article?.webUrl {
                 MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-                let request = NSURLRequest(URL: webUrl)
+                let request = NSURLRequest(URL: webUrl, cachePolicy: .ReturnCacheDataElseLoad, timeoutInterval: 30.0)
                 webView.loadRequest(request)
             }
-        }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

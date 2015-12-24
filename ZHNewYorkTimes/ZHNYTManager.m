@@ -62,7 +62,8 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
     
     // Request json. This completionHandler will be run on a background queue as configured in init.
     // We will call this function's completionHandler on the main queue.
-    NSURLSessionDataTask *articlesTask = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30.0];
+    NSURLSessionDataTask *articlesTask = [_session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(error != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(nil, nil, error);
@@ -90,10 +91,45 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completionBlock(articles, pagination, nil);
-                });                
+                });
             }
         }
     }];
+    
+    // Request json. This completionHandler will be run on a background queue as configured in init.
+    // We will call this function's completionHandler on the main queue.
+//    NSURLSessionDataTask *articlesTask = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if(error != nil) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                completionBlock(nil, nil, error);
+//            });
+//        } else {
+//            NSError *jsonError = nil;
+//            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
+//            if(jsonError != nil) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    completionBlock(nil, nil, jsonError);
+//                });
+//            } else {
+//                // Get pagination
+//                NSNumber *offsetNumber = [jsonDictionary valueForKeyPath:@"response.meta.offset"];
+//                NSUInteger page = offsetNumber.unsignedIntegerValue / pagination.perPage + 1;
+//                pagination.page = page;
+//                
+//                // Get articles
+//                NSArray <NSDictionary *> *articleDictionaries = [jsonDictionary valueForKeyPath:@"response.docs"];
+//                NSMutableArray *articles = [[NSMutableArray alloc]initWithCapacity:articleDictionaries.count];
+//                [articleDictionaries enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dictionary, NSUInteger idx, BOOL * _Nonnull stop) {
+//                    ZHNYTArticle *article = [[ZHNYTArticle alloc]initWithDictionary:dictionary];
+//                    [articles addObject:article];
+//                }];
+//                
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    completionBlock(articles, pagination, nil);
+//                });                
+//            }
+//        }
+//    }];
     
     [articlesTask resume];
     
