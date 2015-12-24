@@ -60,10 +60,10 @@ class ZHArticlesViewController: ZHViewController {
     }
     
     func resetNYT() {
-        // We don't want to wipe the tableView unless we know there is an active connection.
-        if ZHReachability.isConnectedToNetwork() == false {
-            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
-        } else {
+//        // We don't want to wipe the tableView unless we know there is an active connection.
+//        if ZHReachability.isConnectedToNetwork() == false {
+//            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
+//        } else {
             // Clear any articles, wipe the tableView, reset pagination.
             articles.removeAll()
             tableView.reloadData()
@@ -71,13 +71,13 @@ class ZHArticlesViewController: ZHViewController {
             
             // Get new articles, populate tableView, and mark pagination.
             getNYTArticles()
-        }
+//        }
     }
     
     func getNYTArticles() {
-        if ZHReachability.isConnectedToNetwork() == false {
-            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
-        } else {
+//        if ZHReachability.isConnectedToNetwork() == false {
+//            self.presentAlertDialogWithMessage("Please check your internet connection and try again")
+//        } else {
             MBProgressHUD.showHUDAddedTo(view, animated: true)
             isGettingNextPage = true
             ZHNYTManager.sharedInstance().getArticlesWithPagination(pagination) { (articles: [ZHNYTArticle]!, pagination: ZHNYTPagination!, error: NSError!) -> Void in
@@ -107,7 +107,7 @@ class ZHArticlesViewController: ZHViewController {
                     self.isGettingNextPage = false
                 }
             }
-        }
+//        }
     }
 }
 

@@ -35,9 +35,18 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // Setup a cache of 25/200 MB
+        [NSURLCache setSharedURLCache:[[NSURLCache alloc] initWithMemoryCapacity:25 * 1024 * 1024
+                                                                    diskCapacity:200 * 1024 * 1024
+                                                                        diskPath:nil]];
+
+        
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         config.allowsCellularAccess = YES;
         config.HTTPMaximumConnectionsPerHost = 1;
+        config.URLCache = [NSURLCache sharedURLCache];
+        config.requestCachePolicy = NSURLRequestReturnCacheDataElseLoad;
+        
         _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue new]];
     }
     return self;
@@ -69,6 +78,9 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
                 completionBlock(nil, nil, error);
             });
         } else {
+            
+            [self printCache];
+                        
             NSError *jsonError = nil;
             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
             if(jsonError != nil) {
@@ -133,5 +145,12 @@ static NSString *ZHNYTKey = @"3b224e328771da446ab6c6c5a23c427b:13:73834071";
     
     [articlesTask resume];
     
+}
+
+-(void)printCache{
+    // Print out remaining cache size
+    NSLog(@"DiskCache: %@ of %@", @([[NSURLCache sharedURLCache] currentDiskUsage]), @([[NSURLCache sharedURLCache] diskCapacity]));
+    NSLog(@"MemoryCache: %@ of %@", @([[NSURLCache sharedURLCache] currentMemoryUsage]), @([[NSURLCache sharedURLCache] memoryCapacity]));
+
 }
 @end

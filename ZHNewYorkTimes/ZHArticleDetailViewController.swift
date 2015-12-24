@@ -45,4 +45,10 @@ extension ZHArticleDetailViewController: UIWebViewDelegate {
             MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
+    
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        if let error = error {
+            print("Error: " + error.localizedDescription)
+        }
+    }
 }
