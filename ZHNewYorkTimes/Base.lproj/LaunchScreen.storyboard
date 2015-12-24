@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NYT_512" translatesAutoresizingMaskIntoConstraints="NO" id="0ot-tv-5j5">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ot-tv-5j5" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="9Jo-6e-Hhl"/>
+                            <constraint firstAttribute="trailing" secondItem="0ot-tv-5j5" secondAttribute="trailing" id="AmL-4U-5AG"/>
+                            <constraint firstItem="0ot-tv-5j5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="DqP-SF-qEk"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="0ot-tv-5j5" secondAttribute="bottom" id="RAF-ih-s6W"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +35,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NYT_512" width="512" height="512"/>
+    </resources>
 </document>
